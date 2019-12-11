@@ -19,10 +19,10 @@ massive(CONNECTION_STRING).then(db => {
     console.log('DB IS CONNECTED BRO')
 })
 
-// app.post('/api/login', ctrl.login);
+app.post('/api/login', ctrl.login);
 app.post('/api/auth/register', ctrl.register);
 // app.post('/api/logout', ctrl.logout);
-// app.get('/api/user', ctrl.getUser);
+// app.get('/api/user', ctrl.updateUser);
 
 const port = SERVER_PORT;
 app.listen(port, () => console.log(`Server running on ${port}`));

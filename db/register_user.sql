@@ -2,7 +2,7 @@ insert into helo_users (
     username,
     user_password
 ) values (
-    ${email},
+    ${username},
     ${hash}
 )
 returning id, username;

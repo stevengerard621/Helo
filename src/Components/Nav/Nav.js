@@ -1,10 +1,12 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 class Nav extends Component {
-
+   
     render(){
-        return(
+        console.log()
+        return( 
             <div>
                 <Link to='/dashboard'>
                     <button>HOME</button>
@@ -15,8 +17,14 @@ class Nav extends Component {
                 <Link to='/'>
                     <button>LOGOUT</button>
                 </Link>
+                {/* <p>{username}</p> */}
             </div>
           )
     }  
 };
-export default Nav;
+
+const mapStateToProps = (reduxState) => {
+    return reduxState
+}
+
+export default connect(mapStateToProps)(Nav);

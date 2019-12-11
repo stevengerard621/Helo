@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import {connect} from 'react-redux'
 
 
 class Auth extends Component {
@@ -26,6 +27,14 @@ class Auth extends Component {
         .catch(err => console.log(err));
     }
 
+    handleLogin = () => {
+        axios.post('./api/login', {email: this.state.username,  password: this.state.password}).then(res => {
+            this.props.history.push('/dashboard')
+        })
+        .catch(err => console.log(err))
+    }
+ 
+
     render(){
         return(
             <div>
@@ -43,11 +52,11 @@ class Auth extends Component {
                     onChange={(event) => this.handleInput(event)}/>
                     <br/>
                     <br/>
-                    <button>LOGIN</button>
+                    <button onClick={this.handleLogin}>LOGIN</button>
                     <button onClick={this.handleRegister}>REGISTER</button>
             </div>
         )
     }
 };
 
-export default Auth;
+export default connect(null)(Auth);
