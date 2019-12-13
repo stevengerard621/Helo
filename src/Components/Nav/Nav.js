@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
+
 class Nav extends Component {
    
     render(){
-        console.log()
+        console.log(this.props)
         return( 
             <div>
                 <Link to='/dashboard'>
@@ -24,7 +25,11 @@ class Nav extends Component {
 };
 
 const mapStateToProps = (reduxState) => {
-    return reduxState
+    const {username, profile_pic} = reduxState
+    return {
+        username,
+        profile_pic
+    }
 }
 
 export default connect(mapStateToProps)(Nav);
